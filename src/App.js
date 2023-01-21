@@ -12,7 +12,8 @@ function App() {
 
 
     useEffect(() => {
-        fetch("http://localhost:8000/products/")
+        // fetch("http://localhost:8000/products/")
+            fetch("https://shopping-site-django.onrender.com/products/")
             .then((response) => response.json())
             .then((data) => {
                 // console.log(data)
@@ -22,7 +23,8 @@ function App() {
     }, [])
 
     useEffect(() => {
-        fetch("http://localhost:8000/cartitems/")
+        // fetch("http://localhost:8000/cartitems/")
+        fetch("https://shopping-site-django.onrender.com/cartitems/")
             .then((response) => response.json())
             .then((data) => {
                 // console.log(data)
