@@ -5,7 +5,7 @@ function Product({product}) {
         <h3>{product.description}</h3>
         <h3>{product.price}</h3>
         {/* <img src={'http://127.0.0.1:8000/static'+product.image} alt={product.name}/> */}
-        <img src={'https://shopping-site-django.onrender.com/static/images'+product.image} alt={product.name}/>
+        <img src={'https://shopping-site-django.onrender.com/'+product.image} alt={product.name}/>
 
     </div>
   )
