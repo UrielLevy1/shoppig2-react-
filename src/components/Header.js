@@ -1,12 +1,24 @@
 import { Link } from "react-router-dom"
+import Nav from 'react-bootstrap/Nav';
+
+
 function Header() {
   return (
-    <div>
-        <Link to="/" style={{ color: "white", background: "red" }}>Products</Link>
-        <br/>
-        <Link to="/cart" style={{ color: "white", background: "blue" }}>Cart</Link>
-    </div>
+    <Nav variant="tabs" defaultActiveKey="/">
+      <Nav.Item>
+        <Nav.Link href="/login">Login</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link as={Link} to="/" >Products</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link as={Link} to="/cart" >Cart</Nav.Link>
+      </Nav.Item>
+    </Nav>
+
   )
-}   
+}
 
 export default Header
+
+

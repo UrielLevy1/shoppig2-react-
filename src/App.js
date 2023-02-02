@@ -4,6 +4,8 @@ import Products from "./components/Products";
 import Cart from "./components/Cart";
 import Cartitems from "./components/Cartitems";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LoginPage from "./components/Login";
+import axios from "axios";
 
 
 function App() {
@@ -23,8 +25,8 @@ function App() {
     }, [])
 
     useEffect(() => {
-        // fetch("http://localhost:8000/cartitems/")
-        fetch("https://shopping-site-django.onrender.com/cartitems/")
+        fetch("http://localhost:8000/cartitems/")
+        // fetch("https://shopping-site-django.onrender.com/cartitems/")
             .then((response) => response.json())
             .then((data) => {
                 // console.log(data)
@@ -32,6 +34,13 @@ function App() {
             });
         console.log('use effect called!')
     }, [])
+
+    function loginUser(user, pass){
+        axios.post("http://localhost:8000/login/", {
+            username : user,
+            password : pass,
+        })
+    }
 
     return (
         <div className="App">
@@ -45,6 +54,7 @@ function App() {
                     {/* <Route path="/cart" element={<Cart />} /> */}
                     <Route path="/cart" element={
                         <Cartitems cartitems={cartitems} />} />
+                    <Route path="/login" element={<LoginPage loginUser={loginUser} />} />    
                 </Routes>
             </BrowserRouter>
 
