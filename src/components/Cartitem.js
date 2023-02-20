@@ -1,8 +1,9 @@
 function Cartitem({cartitem}) {
     return (
       <div>
-          <h1>{cartitem.product}</h1>
-          <h3>{cartitem.quantity}</h3>
+          <h5 style={{color: '#27B3C4'}}>SKU: {cartitem.product}</h5>
+          <h5 style={{color: '#80D102'}}>Quantity: {cartitem.quantity}</h5>
+          <br></br>
       </div>
     )
   }

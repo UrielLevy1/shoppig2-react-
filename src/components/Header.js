@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 
 function Header() {
   return (
-    <Nav variant="tabs" defaultActiveKey="/">
+    <Nav variant="tabs" defaultActiveKey="/" style={{backgroundColor: 'yellow'}}>
       <Nav.Item>
         <Nav.Link href="/login">Login</Nav.Link>
       </Nav.Item>

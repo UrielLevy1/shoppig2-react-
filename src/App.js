@@ -11,7 +11,7 @@ import axios from "axios";
 function App() {
     const [products, setProducts] = useState([])
     const [cartitems, setCartitems] = useState([])
-
+    
 
     useEffect(() => {
         // fetch("http://localhost:8000/products/")
@@ -25,8 +25,8 @@ function App() {
     }, [])
 
     useEffect(() => {
-        fetch("http://localhost:8000/cartitems/")
-        // fetch("https://shopping-site-django.onrender.com/cartitems/")
+        // fetch("http://localhost:8000/cartitems/")
+        fetch("https://shopping-site-django.onrender.com/cartitems/")
             .then((response) => response.json())
             .then((data) => {
                 // console.log(data)
@@ -42,11 +42,18 @@ function App() {
         })
     }
 
+    function addToCart(productID, quantity){
+        axios.post("https://localhost:8000/cartitems/", {
+            product : productID,
+            quantity : quantity,
+        })
+    }
+
     return (
         <div className="App">
 
             <BrowserRouter>
-                <h1>My Cart Front end</h1>
+                <h1 style={{color: 'blue'}} >My cart base application</h1>
                 <Header />
                 <Routes>
                     <Route path="/" element={
@@ -55,6 +62,7 @@ function App() {
                     <Route path="/cart" element={
                         <Cartitems cartitems={cartitems} />} />
                     <Route path="/login" element={<LoginPage loginUser={loginUser} />} />    
+                    <Route path="/addToCart" element={<addToCart/>}/>
                 </Routes>
             </BrowserRouter>
 
