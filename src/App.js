@@ -36,14 +36,16 @@ function App() {
     }, [])
 
     function loginUser(user, pass){
-        axios.post("http://localhost:8000/login/", {
+        axios.post("http://shopping-site-django.onrender.com/login/", {
+        // axios.post("http://localhost:8000/login/", {
             username : user,
             password : pass,
         })
     }
 
     function addToCart(productID, quantity){
-        axios.post("https://localhost:8000/cartitems/", {
+        axios.post("https://shopping-site-django.onrender.com/cartitems/", {
+        // axios.post("https://localhost:8000/cartitems/", {
             product : productID,
             quantity : quantity,
         })
